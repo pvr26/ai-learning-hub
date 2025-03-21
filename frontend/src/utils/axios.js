@@ -18,22 +18,32 @@ const instance = axios.create({
 // Request interceptor
 instance.interceptors.request.use(
   (config) => {
+    console.log('Making request to:', config.url);
     const token = localStorage.getItem('token');
     if (token) {
+      console.log('Adding token to request headers');
       config.headers.Authorization = `Bearer ${token}`;
+    } else {
+      console.log('No token found in localStorage');
     }
     return config;
   },
   (error) => {
+    console.error('Request interceptor error:', error);
     return Promise.reject(error);
   }
 );
 
 // Response interceptor
 instance.interceptors.response.use(
-  (response) => response,
+  (response) => {
+    console.log('Response received:', response.status);
+    return response;
+  },
   (error) => {
+    console.error('Response error:', error.response?.status);
     if (error.response?.status === 401) {
+      console.log('Unauthorized, redirecting to login');
       localStorage.removeItem('token');
       window.location.href = '/login';
     }
