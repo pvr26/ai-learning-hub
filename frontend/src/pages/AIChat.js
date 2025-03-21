@@ -10,6 +10,7 @@ import {
   Alert,
 } from '@mui/material';
 import { Send as SendIcon } from '@mui/icons-material';
+import ReactMarkdown from 'react-markdown';
 import axios from '../utils/axios';
 
 const Message = ({ content, isUser }) => (
@@ -29,7 +30,61 @@ const Message = ({ content, isUser }) => (
         color: isUser ? 'white' : 'text.primary',
       }}
     >
-      <Typography variant="body1">{content}</Typography>
+      <ReactMarkdown
+        components={{
+          // Style markdown elements
+          p: ({ children }) => <Typography variant="body1" paragraph>{children}</Typography>,
+          h1: ({ children }) => <Typography variant="h4" gutterBottom>{children}</Typography>,
+          h2: ({ children }) => <Typography variant="h5" gutterBottom>{children}</Typography>,
+          h3: ({ children }) => <Typography variant="h6" gutterBottom>{children}</Typography>,
+          ul: ({ children }) => <Box component="ul" sx={{ pl: 2 }}>{children}</Box>,
+          ol: ({ children }) => <Box component="ol" sx={{ pl: 2 }}>{children}</Box>,
+          li: ({ children }) => <Box component="li" sx={{ mb: 1 }}>{children}</Box>,
+          code: ({ children }) => (
+            <Box
+              component="code"
+              sx={{
+                backgroundColor: 'rgba(0, 0, 0, 0.1)',
+                p: 0.5,
+                borderRadius: 1,
+                fontFamily: 'monospace',
+              }}
+            >
+              {children}
+            </Box>
+          ),
+          pre: ({ children }) => (
+            <Box
+              component="pre"
+              sx={{
+                backgroundColor: 'rgba(0, 0, 0, 0.1)',
+                p: 2,
+                borderRadius: 1,
+                overflow: 'auto',
+                fontFamily: 'monospace',
+              }}
+            >
+              {children}
+            </Box>
+          ),
+          blockquote: ({ children }) => (
+            <Box
+              component="blockquote"
+              sx={{
+                borderLeft: 4,
+                borderColor: 'primary.main',
+                pl: 2,
+                my: 2,
+                fontStyle: 'italic',
+              }}
+            >
+              {children}
+            </Box>
+          ),
+        }}
+      >
+        {content}
+      </ReactMarkdown>
     </Paper>
   </Box>
 );
