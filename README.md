@@ -1,6 +1,6 @@
 # AI Learning Hub
 
-A full-stack web application for discovering and sharing AI learning resources. This platform helps users find, bookmark, and contribute to a curated collection of AI learning materials.
+A full-stack web application for discovering and sharing AI learning resources. This platform helps users find, bookmark, and contribute to a curated collection of AI learning materials, with an AI-powered chat assistant to help guide users in their learning journey.
 
 ## Features
 
@@ -10,9 +10,11 @@ A full-stack web application for discovering and sharing AI learning resources. 
 - Submit new resources
 - Admin dashboard for managing users and resources
 - Integration with GitHub and arXiv APIs
+- AI-powered chat assistant using Google's Gemini AI
 - Modern, responsive UI with Material-UI components
 - Secure JWT-based authentication
 - Role-based access control (Admin/User)
+- Markdown rendering for AI chat responses
 
 ## Project Structure
 
@@ -47,6 +49,7 @@ ai-learning-hub/
 - Node.js 14 or higher
 - SQLite database
 - Git
+- Google API key for Gemini AI
 
 ## Backend Setup
 
@@ -77,10 +80,10 @@ cp .env.example .env
 # Required variables:
 # - FLASK_APP=app
 # - FLASK_ENV=development
-# - DATABASE_URL=postgresql://username:password@localhost:5432/ai_learning_hub
-# - JWT_SECRET_KEY=your-secret-key
+# - SECRET_KEY=your-secret-key
+# - JWT_SECRET_KEY=your-jwt-secret-key
+# - GOOGLE_API_KEY=your-google-api-key
 # - GITHUB_TOKEN=your-github-token (optional)
-# - ARXIV_API_KEY=your-arxiv-api-key (optional)
 ```
 
 4. Initialize the database:
@@ -144,8 +147,13 @@ After running the database initialization script, you can log in with the defaul
 
 ### Bookmarks
 - GET /api/bookmarks - Get user's bookmarks
-- POST /api/bookmarks/:resource_id - Add bookmark
+- POST /api/bookmarks - Add bookmark
 - DELETE /api/bookmarks/:resource_id - Remove bookmark
+
+### Chat
+- POST /api/chat - General chat with AI assistant
+- POST /api/chat/query - Query-specific chat with resource context
+- GET /api/chat/recommendations - Get personalized recommendations
 
 ### Admin
 - GET /api/admin/users - Get all users
@@ -164,11 +172,13 @@ After running the database initialization script, you can log in with the defaul
 - Flask-Migrate for database migrations
 - JWT for authentication
 - Flask-CORS for handling CORS
-- PostgreSQL as the database
+- SQLite as the database
+- Google's Gemini AI for chat functionality
 
 ### Frontend
 - React with Material-UI for the interface
 - React Router for navigation
 - Axios for API calls
 - Context API for state management
+- React Markdown for rendering AI chat responses
 - Modern responsive design
