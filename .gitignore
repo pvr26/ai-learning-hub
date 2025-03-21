@@ -1,0 +1,16 @@
+# Environment Variables
+backend/.env
+backend/.env.local
+backend/.env.*
+
+# Python
+__pycache__/
+*.py[cod]
+venv/
+
+# IDE
+.vscode/
+.idea/
+
+# OS
+.DS_Store

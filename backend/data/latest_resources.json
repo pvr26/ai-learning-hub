@@ -1,0 +1,354 @@
+{
+    "resources": [
+        {
+            "title": "Deep Learning Specialization",
+            "description": "A series of courses on deep learning by Andrew Ng on Coursera, covering neural networks, CNNs, RNNs, and more.",
+            "url": "https://www.coursera.org/specializations/deep-learning",
+            "category": "Online courses",
+            "is_approved": true
+        },
+        {
+            "title": "Practical Deep Learning for Coders",
+            "description": "A free, practical deep learning course by Fast.ai designed for coders with minimal prerequisites.",
+            "url": "https://www.fast.ai/",
+            "category": "Online courses",
+            "is_approved": true
+        },
+        {
+            "title": "Intro to Deep Learning",
+            "description": "MIT's introductory course on deep learning available on edX, focusing on foundational concepts.",
+            "url": "https://www.edx.org/course/introduction-to-deep-learning",
+            "category": "Online courses",
+            "is_approved": true
+        },
+        {
+            "title": "Deep Learning Nanodegree",
+            "description": "Udacity's nanodegree program offering hands-on deep learning projects and expert guidance.",
+            "url": "https://www.udacity.com/course/deep-learning-nanodegree--nd101",
+            "category": "Online courses",
+            "is_approved": true
+        },
+        {
+            "title": "Convolutional Neural Networks for Visual Recognition",
+            "description": "Stanford's course on CNNs for visual recognition, offered on Coursera.",
+            "url": "https://www.coursera.org/learn/convolutional-neural-networks",
+            "category": "Online courses",
+            "is_approved": true
+        },
+        {
+            "title": "Natural Language Processing Specialization",
+            "description": "DeepLearningAI's course on NLP Specialization, available on Coursera.",
+            "url": "https://www.coursera.org/specializations/natural-language-processing",
+            "category": "Online courses",
+            "is_approved": true
+        },
+        {
+            "title": "Learn Ventures: Fundamentals of Deep Reinforcement Learning",
+            "description": "A course on deep reinforcement learning, offered on edX.",
+            "url": "https://www.edx.org/learn/computer-programming/learn-ventures-fundamentals-of-deep-reinforcement-learning",
+            "category": "Online courses",
+            "is_approved": true
+        },
+        {
+            "title": "Python for Data Science, AI & Development",
+            "description": "IBM's course on Data Science, AI & Development using Python, available on Coursera.",
+            "url": "https://www.coursera.org/learn/python-for-applied-data-science-ai",
+            "category": "Online courses",
+            "is_approved": true
+        },
+        {
+            "title": "AI for Everyone",
+            "description": "A introductory course on AI for Everyone, offered on Coursera.",
+            "url": "https://www.coursera.org/learn/ai-for-everyone",
+            "category": "Online courses",
+            "is_approved": true
+        },
+        {
+            "title": "Generative AI for Everyone",
+            "description": "Course on Generative AI, available on Coursera.",
+            "url": "https://www.coursera.org/learn/generative-ai-for-everyone",
+            "category": "Online courses",
+            "is_approved": true
+        },
+        {
+            "title": "Deep Learning Book",
+            "description": "A comprehensive book about deep learning by Ian Goodfellow, Yoshua Bengio, and Aaron Courville.",
+            "url": "https://www.deeplearningbook.org/",
+            "category": "Documentation",
+            "is_approved": true
+        },
+        {
+            "title": "Stanford CS229: Machine Learning Notes",
+            "description": "Lecture notes from Stanford's CS229 machine learning course, covering deep learning topics.",
+            "url": "http://cs229.stanford.edu/notes/",
+            "category": "Documentation",
+            "is_approved": true
+        },
+        {
+            "title": "Neural Networks and Deep Learning",
+            "description": "An online book by Michael Nielsen providing an intuitive introduction to neural networks and deep learning.",
+            "url": "http://neuralnetworksanddeeplearning.com/",
+            "category": "Documentation",
+            "is_approved": true
+        },
+        {
+            "title": "Deep Learning with Python",
+            "description": "A practical book by François Chollet on implementing deep learning with Python and Keras.",
+            "url": "https://www.manning.com/books/deep-learning-with-python",
+            "category": "Documentation",
+            "is_approved": true
+        },
+        {
+            "title": "Pattern Recognition and Machine Learning",
+            "description": "A book by Christopher Bishop on pattern recognition and machine learning, including deep learning foundations.",
+            "url": "https://www.microsoft.com/en-us/research/people/cmbishop/prml-book/",
+            "category": "Documentation",
+            "is_approved": true
+        },
+        {
+            "title": "Machine Learning: A Probabilistic Perspective",
+            "description": "A book by Kevin Murphy offering a probabilistic view of machine learning, including deep learning.",
+            "url": "https://www.cs.ubc.ca/~murphyk/MLbook/",
+            "category": "Documentation",
+            "is_approved": true
+        },
+        {
+            "title": "The Elements of Statistical Learning",
+            "description": "A book by Trevor Hastie, Robert Tibshirani, and Jerome Friedman on statistical learning, relevant to deep learning.",
+            "url": "https://web.stanford.edu/~hastie/ElemStatLearn/",
+            "category": "Documentation",
+            "is_approved": true
+        },
+        {
+            "title": "Deep Learning for Natural Language Processing",
+            "description": "A book by Yoav Goldberg on applying deep learning to NLP tasks.",
+            "url": "https://www.morganclaypool.com/doi/abs/10.2200/S00905ED1V01Y201907HLT042",
+            "category": "Documentation",
+            "is_approved": true
+        },
+        {
+            "title": "Reinforcement Learning: An Introduction",
+            "description": "A book by Richard Sutton and Andrew Barto introducing reinforcement learning, including deep RL.",
+            "url": "http://incompleteideas.net/book/the-book.html",
+            "category": "Documentation",
+            "is_approved": true
+        },
+        {
+            "title": "Generative Deep Learning",
+            "description": "A book by David Foster on generative models in deep learning, such as GANs and VAEs.",
+            "url": "https://www.oreilly.com/library/view/generative-deep-learning/9781492041931/",
+            "category": "Documentation",
+            "is_approved": true
+        },
+        {
+            "title": "TensorFlow",
+            "description": "Google's open-source machine learning framework widely used for deep learning projects.",
+            "url": "https://github.com/tensorflow/tensorflow",
+            "category": "Github",
+            "is_approved": true
+        },
+        {
+            "title": "PyTorch",
+            "description": "Facebook's open-source deep learning framework known for its flexibility and dynamic computation.",
+            "url": "https://github.com/pytorch/pytorch",
+            "category": "Github",
+            "is_approved": true
+        },
+        {
+            "title": "Keras",
+            "description": "A high-level neural networks API in Python, running on top of TensorFlow, by François Chollet.",
+            "url": "https://github.com/keras-team/keras",
+            "category": "Github",
+            "is_approved": true
+        },
+        {
+            "title": "Fast.ai",
+            "description": "A deep learning library by Fast.ai for coders, simplifying training and deployment.",
+            "url": "https://github.com/fastai/fastai",
+            "category": "Github",
+            "is_approved": true
+        },
+        {
+            "title": "Deep Learning Papers Reading Roadmap",
+            "description": "A curated roadmap by Flood Sung for reading influential deep learning papers.",
+            "url": "https://github.com/floodsung/Deep-Learning-Papers-Reading-Roadmap",
+            "category": "Github",
+            "is_approved": true
+        },
+        {
+            "title": "Awesome Deep Learning",
+            "description": "A curated list of deep learning resources, tutorials, and tools by Christos Christoforou.",
+            "url": "https://github.com/ChristosChristofidis/awesome-deep-learning",
+            "category": "Github",
+            "is_approved": true
+        },
+        {
+            "title": "Deep Learning Drizzle",
+            "description": "A collection of deep learning resources and tutorials by kmario23.",
+            "url": "https://github.com/kmario23/deep-learning-drizzle",
+            "category": "Github",
+            "is_approved": true
+        },
+        {
+            "title": "Deep Reinforcement Learning",
+            "description": "Resources and tutorials for deep reinforcement learning by Morvan Zhou.",
+            "url": "https://github.com/MorvanZhou/Reinforcement-learning-with-tensorflow",
+            "category": "Github",
+            "is_approved": true
+        },
+        {
+            "title": "Deep Learning for Computer Vision",
+            "description": "Tutorials and code for deep learning in computer vision by Adrian Rosebrock.",
+            "url": "https://github.com/AdrianRosebrock/imutils",
+            "category": "Github",
+            "is_approved": true
+        },
+        {
+            "title": "NLP-progress",
+            "description": "A repository tracking progress in natural language processing by Sebastian Ruder.",
+            "url": "https://github.com/sebastianruder/NLP-progress",
+            "category": "Github",
+            "is_approved": true
+        },
+        {
+            "title": "Deep Learning",
+            "description": "A foundational review paper on deep learning by Yann LeCun, Yoshua Bengio, and Geoffrey Hinton.",
+            "url": "https://www.nature.com/articles/nature14539",
+            "category": "Research papers",
+            "is_approved": true
+        },
+        {
+            "title": "ImageNet Classification with Deep Convolutional Neural Networks",
+            "description": "The paper introducing AlexNet, revolutionizing computer vision with deep CNNs.",
+            "url": "https://papers.nips.cc/paper/4824-imagenet-classification-with-deep-convolutional-neural-networks",
+            "category": "Research papers",
+            "is_approved": true
+        },
+        {
+            "title": "Generative Adversarial Nets",
+            "description": "The paper by Ian Goodfellow et al. introducing GANs, a breakthrough in generative modeling.",
+            "url": "https://arxiv.org/abs/1406.2661",
+            "category": "Research papers",
+            "is_approved": true
+        },
+        {
+            "title": "Attention Is All You Need",
+            "description": "The paper introducing the Transformer model, foundational to modern NLP, by Vaswani et al.",
+            "url": "https://arxiv.org/abs/1706.03762",
+            "category": "Research papers",
+            "is_approved": true
+        },
+        {
+            "title": "BERT: Pre-training of Deep Bidirectional Transformers for Language Understanding",
+            "description": "The paper introducing BERT, a key advancement in NLP, by Devlin et al.",
+            "url": "https://arxiv.org/abs/1810.04805",
+            "category": "Research papers",
+            "is_approved": true
+        },
+        {
+            "title": "Deep Residual Learning for Image Recognition",
+            "description": "The paper introducing ResNet, enabling very deep networks, by He et al.",
+            "url": "https://arxiv.org/abs/1512.03385",
+            "category": "Research papers",
+            "is_approved": true
+        },
+        {
+            "title": "Sequence to Sequence Learning with Neural Networks",
+            "description": "A paper on seq2seq learning with neural networks by Sutskever et al., foundational to translation models.",
+            "url": "https://arxiv.org/abs/1409.3215",
+            "category": "Research papers",
+            "is_approved": true
+        },
+        {
+            "title": "Playing Atari with Deep Reinforcement Learning",
+            "description": "A pioneering paper on deep RL for Atari games by Mnih et al.",
+            "url": "https://arxiv.org/abs/1312.5602",
+            "category": "Research papers",
+            "is_approved": true
+        },
+        {
+            "title": "Unsupervised Representation Learning with Deep Convolutional Generative Adversarial Networks",
+            "description": "The paper introducing DCGANs for unsupervised learning by Radford et al.",
+            "url": "https://arxiv.org/abs/1511.06434",
+            "category": "Research papers",
+            "is_approved": true
+        },
+        {
+            "title": "Neural Machine Translation by Jointly Learning to Align and Translate",
+            "description": "A paper on neural machine translation with attention by Bahdanau et al.",
+            "url": "https://arxiv.org/abs/1409.0473",
+            "category": "Research papers",
+            "is_approved": true
+        },
+        {
+            "title": "Reddit AI",
+            "description": "A subreddit for discussing artificial intelligence and deep learning topics.",
+            "url": "https://www.reddit.com/r/artificial/",
+            "category": "Blogs & Forums",
+            "is_approved": true
+        },
+        {
+            "title": "Towards Data Science",
+            "description": "A Medium publication sharing deep learning concepts, tutorials, and code.",
+            "url": "https://towardsdatascience.com/",
+            "category": "Blogs & Forums",
+            "is_approved": true
+        },
+        {
+            "title": "OpenAI Blog",
+            "description": "Blog posts from OpenAI on their latest deep learning research and developments.",
+            "url": "https://openai.com/blog/",
+            "category": "Blogs & Forums",
+            "is_approved": true
+        },
+        {
+            "title": "Distill.pub",
+            "description": "An online journal providing clear, visual explanations of deep learning concepts.",
+            "url": "https://distill.pub/",
+            "category": "Blogs & Forums",
+            "is_approved": true
+        },
+        {
+            "title": "Machine Learning Mastery",
+            "description": "A blog by Jason Brownlee offering practical deep learning tutorials.",
+            "url": "https://machinelearningmastery.com/",
+            "category": "Blogs & Forums",
+            "is_approved": true
+        },
+        {
+            "title": "Andrej Karpathy's Blog",
+            "description": "Blog posts by Andrej Karpathy on deep learning, neural networks, and AI.",
+            "url": "http://karpathy.github.io/",
+            "category": "Blogs & Forums",
+            "is_approved": true
+        },
+        {
+            "title": "Colah's Blog",
+            "description": "Blog posts by Christopher Olah explaining deep learning concepts visually.",
+            "url": "http://colah.github.io/",
+            "category": "Blogs & Forums",
+            "is_approved": true
+        },
+        {
+            "title": "Lil'Log",
+            "description": "Blog posts by Lilian Weng on deep learning, reinforcement learning, and AI.",
+            "url": "https://lilianweng.github.io/lil-log/",
+            "category": "Blogs & Forums",
+            "is_approved": true
+        },
+        {
+            "title": "Adventures in Machine Learning",
+            "description": "A blog offering tutorials and explanations on deep learning and ML techniques.",
+            "url": "https://adventuresinmachinelearning.com/",
+            "category": "Blogs & Forums",
+            "is_approved": true
+        },
+        {
+            "title": "KDnuggets",
+            "description": "A leading site covering AI, deep learning, and data science news and tutorials.",
+            "url": "https://www.kdnuggets.com/",
+            "category": "Blogs & Forums",
+            "is_approved": true
+        }
+    ]
+}

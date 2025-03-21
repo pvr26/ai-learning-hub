@@ -1,0 +1,74 @@
+{
+    "resources": [
+        {
+            "title": "Deep Learning Book",
+            "description": "A comprehensive book about deep learning by Ian Goodfellow, Yoshua Bengio, and Aaron Courville",
+            "url": "https://www.deeplearningbook.org/",
+            "category": "Books",
+            "is_approved": true
+        },
+        {
+            "title": "Fast.ai Practical Deep Learning",
+            "description": "Free practical deep learning course for coders",
+            "url": "https://www.fast.ai/",
+            "category": "Courses",
+            "is_approved": true
+        },
+        {
+            "title": "Stanford CS229: Machine Learning",
+            "description": "Stanford's machine learning course materials",
+            "url": "https://cs229.stanford.edu/",
+            "category": "Courses",
+            "is_approved": true
+        },
+        {
+            "title": "Towards Data Science AI Articles",
+            "description": "Collection of AI and machine learning articles from Towards Data Science",
+            "url": "https://towardsdatascience.com/tagged/artificial-intelligence",
+            "category": "Blogs",
+            "is_approved": true
+        },
+        {
+            "title": "OpenAI Blog",
+            "description": "Latest updates and research from OpenAI",
+            "url": "https://openai.com/blog/",
+            "category": "Blogs",
+            "is_approved": true
+        },
+        {
+            "title": "MIT Deep Learning Lectures",
+            "description": "Comprehensive deep learning lectures from MIT",
+            "url": "https://deeplearning.mit.edu/",
+            "category": "Courses",
+            "is_approved": true
+        },
+        {
+            "title": "Reddit r/MachineLearning",
+            "description": "Community discussions and resources about machine learning",
+            "url": "https://www.reddit.com/r/MachineLearning/",
+            "category": "Communities",
+            "is_approved": true
+        },
+        {
+            "title": "Papers with Code",
+            "description": "Latest papers with code in machine learning",
+            "url": "https://paperswithcode.com/",
+            "category": "Blogs",
+            "is_approved": true
+        },
+        {
+            "title": "TensorFlow Documentation",
+            "description": "Official documentation and tutorials for TensorFlow",
+            "url": "https://www.tensorflow.org/guide",
+            "category": "Documentation",
+            "is_approved": true
+        },
+        {
+            "title": "PyTorch Tutorials",
+            "description": "Official tutorials and documentation for PyTorch",
+            "url": "https://pytorch.org/tutorials/",
+            "category": "Documentation",
+            "is_approved": true
+        }
+    ]
+} 
