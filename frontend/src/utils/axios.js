@@ -1,19 +1,21 @@
 import axios from 'axios';
 
+// Debug log to check environment variable
+console.log('API URL:', process.env.REACT_APP_API_URL);
+
 // Create axios instance with base URL
 const instance = axios.create({
   baseURL: process.env.REACT_APP_API_URL || 'http://localhost:5000',  // Use environment variable with fallback
   withCredentials: true,  // Enable sending cookies
   headers: {
-    'Content-Type': 'application/json',
-    'Accept': 'application/json'
+    'Content-Type': 'application/json'
   },
   paramsSerializer: {
     encode: (param) => encodeURIComponent(param),
   },
 });
 
-// Add a request interceptor to add the auth token
+// Request interceptor
 instance.interceptors.request.use(
   (config) => {
     const token = localStorage.getItem('token');
@@ -27,11 +29,11 @@ instance.interceptors.request.use(
   }
 );
 
-// Add a response interceptor to handle token expiration
+// Response interceptor
 instance.interceptors.response.use(
   (response) => response,
   (error) => {
-    if (error.response && error.response.status === 401) {
+    if (error.response?.status === 401) {
       localStorage.removeItem('token');
       window.location.href = '/login';
     }

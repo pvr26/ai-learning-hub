@@ -1,4 +1,4 @@
-from flask import Flask
+from flask import Flask, jsonify
 from flask_cors import CORS
 from config import Config
 from app.extensions import db, login_manager, jwt, migrate
@@ -37,7 +37,19 @@ def create_app(config_class=Config):
          expose_headers=["Content-Type", "Authorization"],
          max_age=3600)
     
+    # Set secure cookie settings
+    app.config.update(
+        SESSION_COOKIE_SECURE=True,
+        SESSION_COOKIE_SAMESITE='None',
+        SESSION_COOKIE_HTTPONLY=True
+    )
+    
     migrate.init_app(app, db)
+    
+    # Test route
+    @app.route('/api/test')
+    def test():
+        return jsonify({"message": "Backend is working!"})
     
     # Register blueprints
     from app.routes.auth import auth_bp
