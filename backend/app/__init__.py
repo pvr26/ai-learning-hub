@@ -2,6 +2,7 @@ from flask import Flask
 from flask_cors import CORS
 from config import Config
 from app.extensions import db, login_manager, jwt, migrate
+import os
 
 def create_app(config_class=Config):
     app = Flask(__name__)
@@ -12,10 +13,19 @@ def create_app(config_class=Config):
     login_manager.init_app(app)
     jwt.init_app(app)
     
-    # Configure CORS
+    # Configure CORS based on environment
+    allowed_origins = [
+        "http://localhost:3000",  # Development
+        os.getenv('FRONTEND_URL', ''),  # Production frontend URL from environment
+        "https://*.vercel.app"  # Allow all Vercel preview deployments
+    ]
+    
+    # Filter out empty strings from allowed origins
+    allowed_origins = [origin for origin in allowed_origins if origin]
+    
     CORS(app, 
          resources={r"/api/*": {
-             "origins": ["http://localhost:3000"],
+             "origins": allowed_origins,
              "methods": ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
              "allow_headers": ["Content-Type", "Authorization", "Accept"],
              "supports_credentials": True,
