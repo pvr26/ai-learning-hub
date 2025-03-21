@@ -1,7 +1,7 @@
 from flask import Flask, jsonify
 from flask_cors import CORS
 from config import Config
-from app.extensions import db, login_manager, jwt, migrate
+from app.extensions import db, jwt, migrate
 import os
 
 def create_app(config_class=Config):
@@ -10,7 +10,6 @@ def create_app(config_class=Config):
     
     # Initialize extensions with app
     db.init_app(app)
-    login_manager.init_app(app)
     jwt.init_app(app)
     
     # Configure CORS based on environment
@@ -27,22 +26,11 @@ def create_app(config_class=Config):
          resources={r"/api/*": {
              "origins": allowed_origins,
              "methods": ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
-             "allow_headers": ["Content-Type", "Authorization", "Accept"],
-             "supports_credentials": True,
+             "allow_headers": ["Content-Type", "Authorization"],
              "expose_headers": ["Content-Type", "Authorization"],
              "max_age": 3600
          }},
-         supports_credentials=True,
-         allow_headers=["Content-Type", "Authorization", "Accept"],
-         expose_headers=["Content-Type", "Authorization"],
-         max_age=3600)
-    
-    # Set secure cookie settings
-    app.config.update(
-        SESSION_COOKIE_SECURE=True,
-        SESSION_COOKIE_SAMESITE='None',
-        SESSION_COOKIE_HTTPONLY=True
-    )
+         supports_credentials=False)  # We're using JWT, not cookies
     
     migrate.init_app(app, db)
     
