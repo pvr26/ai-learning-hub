@@ -1,6 +1,6 @@
 # AI Learning Hub
 
-A full-stack web application for discovering and sharing AI learning resources.
+A full-stack web application for discovering and sharing AI learning resources. This platform helps users find, bookmark, and contribute to a curated collection of AI learning materials.
 
 ## Features
 
@@ -10,12 +10,43 @@ A full-stack web application for discovering and sharing AI learning resources.
 - Submit new resources
 - Admin dashboard for managing users and resources
 - Integration with GitHub and arXiv APIs
+- Modern, responsive UI with Material-UI components
+- Secure JWT-based authentication
+- Role-based access control (Admin/User)
+
+## Project Structure
+
+```
+ai-learning-hub/
+├── backend/                 # Flask backend
+│   ├── app/                # Application package
+│   │   ├── models/        # Database models
+│   │   ├── routes/        # API routes
+│   │   ├── services/      # Business logic
+│   │   └── utils/         # Utility functions
+│   ├── migrations/        # Database migrations
+│   ├── tests/             # Backend tests
+│   ├── config.py          # Configuration
+│   └── requirements.txt   # Python dependencies
+│
+├── frontend/              # React frontend
+│   ├── public/           # Static files
+│   ├── src/
+│   │   ├── components/   # Reusable components
+│   │   ├── contexts/     # React contexts
+│   │   ├── pages/        # Page components
+│   │   └── utils/        # Utility functions
+│   └── package.json      # Node.js dependencies
+│
+└── venv/                 # Python virtual environment
+```
 
 ## Prerequisites
 
 - Python 3.8 or higher
 - Node.js 14 or higher
-- PostgreSQL database
+- SQLite database
+- Git
 
 ## Backend Setup
 
@@ -129,25 +160,15 @@ After running the database initialization script, you can log in with the defaul
 ## Development
 
 ### Backend
-- The backend uses Flask with SQLAlchemy for database operations
+- Flask with SQLAlchemy for database operations
 - Flask-Migrate for database migrations
 - JWT for authentication
 - Flask-CORS for handling CORS
+- PostgreSQL as the database
 
 ### Frontend
 - React with Material-UI for the interface
 - React Router for navigation
 - Axios for API calls
 - Context API for state management
-
-## Contributing
-
-1. Fork the repository
-2. Create a feature branch
-3. Commit your changes
-4. Push to the branch
-5. Create a Pull Request
-
-## License
-
-This project is licensed under the MIT License - see the LICENSE file for details. 
+- Modern responsive design

@@ -8,6 +8,18 @@ __pycache__/
 *.py[cod]
 venv/
 
+# Frontend
+frontend/node_modules/
+frontend/.env
+frontend/.env.local
+frontend/.env.development
+frontend/.env.test
+frontend/.env.production
+frontend/build/
+frontend/dist/
+frontend/.cache/
+frontend/coverage/
+
 # IDE
 .vscode/
 .idea/
