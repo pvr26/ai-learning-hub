@@ -133,11 +133,14 @@ const Home = () => {
           return newBookmarks;
         });
       } else {
-        await axios.post(`/api/bookmarks/${resource.id}`);
+        await axios.post('/api/bookmarks', { resource_id: resource.id });
         setBookmarks(prev => new Set([...prev, resource.id]));
       }
     } catch (error) {
       console.error('Error toggling bookmark:', error);
+      if (error.response) {
+        console.error('Error response:', error.response.data);
+      }
     }
   };
 

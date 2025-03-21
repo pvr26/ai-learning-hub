@@ -30,15 +30,20 @@ def register():
 @auth_bp.route('/login', methods=['POST'], strict_slashes=False)
 def login():
     data = request.get_json()
-    user = User.query.filter_by(username=data['username']).first()
+    username = data.get('username')
+    password = data.get('password')
     
-    if user and user.check_password(data['password']):
-        access_token = create_access_token(identity=user.id)
+    user = User.query.filter_by(username=username).first()
+    
+    if user and user.check_password(password):
+        # Convert user.id to string for JWT token
+        access_token = create_access_token(identity=str(user.id))
         return jsonify({
             'access_token': access_token,
             'user': {
                 'id': user.id,
                 'username': user.username,
+                'role': user.role,
                 'is_admin': user.is_admin
             }
         })

@@ -1,7 +1,7 @@
 from flask import Blueprint, request, jsonify
-from flask_login import login_required, current_user
+from flask_jwt_extended import jwt_required, get_jwt_identity
 from app.services.chat_service import ChatService
-from app.models import Resource
+from app.models import Resource, User, Bookmark
 
 chat_bp = Blueprint('chat', __name__)
 chat_service = ChatService()
@@ -13,7 +13,7 @@ def handle_options():
 
 @chat_bp.route('', methods=['POST'], strict_slashes=False)
 @chat_bp.route('/', methods=['POST'], strict_slashes=False)
-@login_required
+@jwt_required()
 def general_chat():
     data = request.get_json()
     message = data.get('message')
@@ -35,7 +35,7 @@ def general_chat():
         return jsonify({'error': 'Failed to process chat message'}), 500
 
 @chat_bp.route('/query', methods=['POST'], strict_slashes=False)
-@login_required
+@jwt_required()
 def chat():
     data = request.get_json()
     query = data.get('query')
@@ -63,11 +63,16 @@ def chat():
         return jsonify({'error': 'Failed to process chat query'}), 500
 
 @chat_bp.route('/recommendations', methods=['GET'], strict_slashes=False)
-@login_required
+@jwt_required()
 def get_recommendations():
     try:
         # Get user's bookmarked resources
-        bookmarked_resources = current_user.bookmarks.all()
+        user_id = get_jwt_identity()
+        user = User.query.get(user_id)
+        if not user:
+            return jsonify({'error': 'User not found'}), 404
+            
+        bookmarked_resources = Bookmark.query.filter_by(user_id=user_id).all()
         
         # Get personalized recommendations
         recommendations = chat_service.get_recommendations(bookmarked_resources)

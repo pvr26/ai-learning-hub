@@ -1,6 +1,6 @@
 from flask import Blueprint, request, jsonify
-from flask_login import login_required, current_user
-from app.models import Resource, db
+from flask_jwt_extended import jwt_required, get_jwt_identity
+from app.models import Resource, db, User
 from app.utils.decorators import admin_required
 
 resources_bp = Blueprint('resources', __name__)
@@ -34,25 +34,31 @@ def get_resources():
         return jsonify({'error': 'Failed to fetch resources'}), 500
 
 @resources_bp.route('/', methods=['POST'], strict_slashes=False)
-@login_required
+@jwt_required()
 def create_resource():
-    data = request.get_json()
-    
-    resource = Resource(
-        title=data['title'],
-        description=data['description'],
-        url=data['url'],
-        category=data['category'],
-        submitter_id=current_user.id
-    )
-    
-    if current_user.is_admin:
-        resource.is_approved = True
-    
-    db.session.add(resource)
-    db.session.commit()
-    
-    return jsonify(resource.to_dict()), 201
+    try:
+        current_user_id = get_jwt_identity()
+        user = User.query.get(current_user_id)
+        data = request.get_json()
+        
+        resource = Resource(
+            title=data['title'],
+            description=data['description'],
+            url=data['url'],
+            category=data['category'],
+            submitter_id=current_user_id
+        )
+        
+        if user.is_admin:
+            resource.is_approved = True
+        
+        db.session.add(resource)
+        db.session.commit()
+        
+        return jsonify(resource.to_dict()), 201
+    except Exception as e:
+        print(f"Error creating resource:", str(e))  # Debug log
+        return jsonify({'error': 'Failed to create resource'}), 500
 
 @resources_bp.route('/<int:id>', methods=['GET'], strict_slashes=False)
 def get_resource(id):
@@ -60,23 +66,29 @@ def get_resource(id):
     return jsonify(resource.to_dict())
 
 @resources_bp.route('/<int:id>', methods=['PUT'], strict_slashes=False)
-@login_required
+@jwt_required()
 @admin_required
 def update_resource(id):
-    resource = Resource.query.get_or_404(id)
-    data = request.get_json()
-    
-    resource.title = data.get('title', resource.title)
-    resource.description = data.get('description', resource.description)
-    resource.url = data.get('url', resource.url)
-    resource.category = data.get('category', resource.category)
-    resource.is_approved = data.get('is_approved', resource.is_approved)
-    
-    db.session.commit()
-    return jsonify(resource.to_dict())
+    try:
+        current_user_id = get_jwt_identity()
+        user = User.query.get(current_user_id)
+        resource = Resource.query.get_or_404(id)
+        data = request.get_json()
+        
+        resource.title = data.get('title', resource.title)
+        resource.description = data.get('description', resource.description)
+        resource.url = data.get('url', resource.url)
+        resource.category = data.get('category', resource.category)
+        resource.is_approved = data.get('is_approved', resource.is_approved)
+        
+        db.session.commit()
+        return jsonify(resource.to_dict())
+    except Exception as e:
+        print(f"Error updating resource:", str(e))  # Debug log
+        return jsonify({'error': 'Failed to update resource'}), 500
 
 @resources_bp.route('/<int:id>', methods=['DELETE'], strict_slashes=False)
-@login_required
+@jwt_required()
 @admin_required
 def delete_resource(id):
     resource = Resource.query.get_or_404(id)
@@ -85,7 +97,7 @@ def delete_resource(id):
     return '', 204
 
 @resources_bp.route('/pending', methods=['GET'], strict_slashes=False)
-@login_required
+@jwt_required()
 @admin_required
 def get_pending_resources():
     page = request.args.get('page', 1, type=int)

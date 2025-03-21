@@ -1,5 +1,5 @@
 from flask import Blueprint, request, jsonify
-from flask_login import login_required
+from flask_jwt_extended import jwt_required, get_jwt_identity
 from app.services.github_service import GitHubService
 from app.services.arxiv_service import ArxivService
 from app.models import Resource
@@ -69,7 +69,7 @@ def get_trending_github():
         }), 500
 
 @search_bp.route('/all', methods=['GET'], strict_slashes=False)
-@login_required
+@jwt_required()
 def search_all():
     query = request.args.get('q', '')
     page = request.args.get('page', 1, type=int)

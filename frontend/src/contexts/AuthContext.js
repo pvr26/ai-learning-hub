@@ -19,6 +19,7 @@ export const AuthProvider = ({ children }) => {
   useEffect(() => {
     // Check if user is logged in on mount
     const token = localStorage.getItem('token');
+    console.log('AuthProvider - Initial token check:', token ? 'Present' : 'Missing');
     if (token) {
       axios.defaults.headers.common['Authorization'] = `Bearer ${token}`;
     }
@@ -28,14 +29,17 @@ export const AuthProvider = ({ children }) => {
   const checkAuth = async () => {
     try {
       const token = localStorage.getItem('token');
+      console.log('checkAuth - Token:', token ? 'Present' : 'Missing');
       if (!token) {
         setLoading(false);
         return;
       }
 
       const response = await axios.get('/api/auth/me');
+      console.log('checkAuth - User data:', response.data);
       setUser(response.data);
     } catch (error) {
+      console.error('checkAuth - Error:', error.response?.status, error.response?.data);
       localStorage.removeItem('token');
       delete axios.defaults.headers.common['Authorization'];
       setUser(null);
@@ -47,17 +51,20 @@ export const AuthProvider = ({ children }) => {
   const login = async (username, password) => {
     try {
       setError(null);
+      console.log('Login attempt for user:', username);
       const response = await axios.post('/api/auth/login', {
         username,
         password,
       });
 
       const { access_token, user } = response.data;
+      console.log('Login successful - Setting token and user data');
       localStorage.setItem('token', access_token);
       axios.defaults.headers.common['Authorization'] = `Bearer ${access_token}`;
       setUser(user);
       return user;
     } catch (error) {
+      console.error('Login error:', error.response?.status, error.response?.data);
       setError(error.response?.data?.error || 'Login failed');
       throw error;
     }
@@ -66,12 +73,14 @@ export const AuthProvider = ({ children }) => {
   const register = async (username, password) => {
     try {
       setError(null);
+      console.log('Register attempt for user:', username);
       await axios.post('/api/auth/register', {
         username,
         password,
       });
       return login(username, password);
     } catch (error) {
+      console.error('Registration error:', error.response?.status, error.response?.data);
       setError(error.response?.data?.error || 'Registration failed');
       throw error;
     }
@@ -79,6 +88,7 @@ export const AuthProvider = ({ children }) => {
 
   const logout = async () => {
     try {
+      console.log('Logout initiated');
       await axios.post('/api/auth/logout');
     } catch (error) {
       console.error('Logout error:', error);
@@ -86,6 +96,7 @@ export const AuthProvider = ({ children }) => {
       localStorage.removeItem('token');
       delete axios.defaults.headers.common['Authorization'];
       setUser(null);
+      console.log('Logout completed');
     }
   };
 
